@@ -30,6 +30,21 @@ B2- especialmente en casos de creditos, es importante la transparencia y explica
 
 ![ML-4030-image001](https://user-images.githubusercontent.com/10265468/167303486-da2b5ef6-35f4-4e7b-9f24-090a21638ef6.jpg)
 
+C1- se crea un nuevo proyecto en sagemaker studio
+
+C2- se crea el pipeline apropiado (ver notebooks 1-9 como ejemplo)
+
+C3- se registra el pipeline en model registry
+
+C4- el DS verifica las metricas y aprueba o rechaza el modelo
+
+C5- de aprobarse, se deploya un endpoint en etapa de staging, luego, posiblemente, a produccion
+
+C6- model monitor es configurado en el endpoint para la deteccion de concept drift con respecto al baseline.
+
+C7- con cada corrida batch corre y publica metricas en cloudwatch
+
+C8- se encienden alarmas cloudwatch al pasar ciertos thresholds --> regla event bridge reentrena
 
 
 
