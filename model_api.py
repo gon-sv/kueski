@@ -12,5 +12,6 @@ def lambda_handler(event, context):
     file_content = s3_client.get_object( Bucket= bucket_name, Key=object_key)["Body"].read()
     model = load(file_content)
     features = requests.post(features_api_url, event)
+    features = [features['age'], features['years_on_the_job'], features['nb_previous_loans'], features['avg_amount_loans_previous'], features['flag_own_car'], features['status']]
 
     return model.predict(features)
